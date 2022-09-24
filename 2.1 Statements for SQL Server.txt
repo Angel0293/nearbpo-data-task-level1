@@ -1,0 +1,26 @@
+CREATE DATABASE weather;
+
+CREATE TABLE stations(
+  station_id int NOT NULL primary key,
+  name varchar(50),
+  latitude DOUBLE PRECISION,
+  longitude DOUBLE PRECISION,
+  elevation DOUBLE PRECISION
+);
+
+CREATE TABLE variables (
+  variable_id char(16) primary key,
+  name varchar(50),
+  description varchar(50),
+  units varchar(50)
+);
+
+CREATE TABLE observations (
+  sensor_id int,
+  variable_id char(16) ,
+  observation_date timestamp,
+  observed_value DOUBLE PRECISION,
+  status char(2),
+  CONSTRAINT fk_station FOREIGN KEY (sensor_id) REFERENCES stations (station_id),
+  CONSTRAINT fk_variables FOREIGN KEY (variable_id) REFERENCES variables (variable_id)
+);

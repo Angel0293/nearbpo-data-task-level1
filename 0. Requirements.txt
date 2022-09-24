@@ -1,0 +1,9 @@
+sql server
+entity relationship diagram (draw.io)
+Python
+- pandas
+- numpy
+- urllib
+- numpy
+- requests
+- BeautifulSoup
